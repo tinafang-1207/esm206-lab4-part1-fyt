@@ -5,11 +5,26 @@ date: "10/18/2021"
 output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```{r setup, include=TRUE, message = FALSE, warning = FALSE}
+knitr::opts_chunk$set(echo = TRUE, warning = FALSE)
 library(plotly)
 library(DT)
 library(tidyverse)
 library(palmerpenguins)
+```
+
+```{r}
+penguins_graph <- ggplot(data = penguins, aes(x= flipper_length_mm, y= body_mass_g)) +
+  geom_point(aes(color = species))
+
+penguins_graph
+```
+
+```{r}
+ggplotly(penguins_graph)
+```
+
+```{r}
+datatable(penguins)
 ```
 
